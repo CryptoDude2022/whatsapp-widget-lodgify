@@ -1,25 +1,83 @@
-# WhatsApp Widget Project for Vercel
+# WhatsApp Widget + Promo Banner - Lovely Venice
 
-This is a static HTML project featuring a WhatsApp widget and promo banner, optimized for embedding in sites like Lodgify.
+Modern, mobile-friendly WhatsApp chat widget and promotional banner for Lodgify integration.
 
-## Files
+## Features
 
-- `index.html`: Demo page with embedded WhatsApp widget.
-- `public/promo.html`: Responsive promo banner with auto-resize for iframe embedding.
-- `public/embed.html`: Minimal floating WhatsApp button for iframe embedding.
+- **Mobile Optimized** - Doesn't block mobile menus or navigation
+- **Modern Design** - Gradient backgrounds, smooth animations, hover effects
+- **Promo Banner** - Eye-catching "Book Direct & Save 18%" banner
+- **WhatsApp Integration** - Direct chat link with pre-filled message
+- **Smart Banner** - Remembers if user closed it (localStorage)
+- **Responsive** - Works on all screen sizes
+- **Separate Files** - Banner and Widget can be positioned independently
 
-## Deployment to Vercel
+## File Structure
 
-1. Push this project to GitHub.
-2. Go to [Vercel](https://vercel.com) and import the repository.
-3. Vercel will automatically detect it as a static site and deploy it.
+```
+whatsapp-widget-lodgify/
+ index.html          # WhatsApp Widget (standalone)
+ banner.html         # Promo Banner (standalone)
+ widget-embed.html   # WhatsApp Widget (embed for Lodgify)
+ banner-embed.html   # Promo Banner (embed for Lodgify)
+ vercel.json         # Vercel config
+ .gitignore          # Git ignore rules
+ README.md           # Documentation
+```
 
-## Usage
+## Quick Start
 
-- Embed `public/promo.html` as an iframe in your Lodgify page for the banner.
-- Embed `public/embed.html` as an iframe for the floating WhatsApp button.
+### For Lodgify Integration
 
-## Customization
+1. **Banner**: Copy contents of `banner-embed.html`  Paste in Lodgify Header
+2. **Widget**: Copy contents of `widget-embed.html`  Paste in Lodgify Footer
 
-- Update the phone number in the WhatsApp links.
-- Modify styles as needed.
+### For Standalone Use
+
+Open `index.html` or `banner.html` in browser, or deploy to any static host.
+
+## Configuration
+
+### Change WhatsApp Number
+
+Edit in `index.html` or `widget-embed.html`:
+
+```html
+href="https://wa.me/YOUR_PHONE_NUMBER?text=YOUR_MESSAGE"
+```
+
+### Change Banner Link
+
+Current: `https://rent-in-venice.org/en/book-now`
+
+Edit in `banner.html` or `banner-embed.html`:
+
+```html
+<a href="YOUR_BOOKING_LINK" class="banner-cta">
+```
+
+## Deployment
+
+### Vercel (Recommended)
+
+1. Push to GitHub
+2. Import repo on [vercel.com](https://vercel.com)
+3. Deploy
+
+### GitHub Pages
+
+1. Repository Settings  Pages
+2. Source: main branch
+3. Save
+
+## URLs After Deploy
+
+- **Widget**: `https://your-domain.vercel.app/index.html`
+- **Banner**: `https://your-domain.vercel.app/banner.html`
+
+## License
+
+MIT - Free to use and modify.
+
+---
+Created for Lovely Venice Apartments
