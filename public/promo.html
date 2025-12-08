@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promo Banner</title>
+    <style>
+        .promo-banner {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: clamp(1rem, 4vw, 2rem) clamp(1rem, 6vw, 3rem);
+            text-align: center;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            box-sizing: border-box;
+            min-height: clamp(80px, 12vh, 120px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .promo-banner h2 {
+            margin: 0 0 0.5rem 0;
+            font-size: clamp(1.2rem, 5vw, 2rem);
+            font-weight: 700;
+        }
+
+        .promo-banner p {
+            margin: 0 0 1rem 0;
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
+            opacity: 0.9;
+        }
+
+        .promo-banner a {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .promo-banner a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        @media (max-width: 900px) {
+            .promo-banner {
+                padding: 1.5rem 1rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .promo-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="promo-banner">
+        <h2>Book Now And Save Up To 18% In Commissions</h2>
+        <p>Special offer for direct bookings - Contact us via WhatsApp for details</p>
+        <a href="https://wa.me/393469537567?text=Hi!%20I%20would%20like%20information%20about%20your%20apartments%20in%20Venice." target="_blank">Chat on WhatsApp</a>
+    </div>
+
+    <script>
+        // Auto-resize helper for iframe embedding
+        function sendHeight() {
+            const height = document.body.scrollHeight;
+            window.parent.postMessage({ type: 'promo-height', height }, '*');
+        }
+
+        // Send height on load, resize, and mutations
+        window.addEventListener('load', sendHeight);
+        window.addEventListener('resize', sendHeight);
+
+        const observer = new MutationObserver(sendHeight);
+        observer.observe(document.body, { childList: true, subtree: true });
+
+        // Also send periodically for dynamic content
+        setInterval(sendHeight, 1000);
+    </script>
+</body>
+</html>
