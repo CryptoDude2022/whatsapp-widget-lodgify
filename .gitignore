@@ -19,7 +19,6 @@ $RECYCLE.BIN/
 .idea/
 *.swp
 *.swo
-*~
 .project
 .classpath
 .settings/
@@ -64,7 +63,6 @@ coverage/
 # Backup files
 *.bak
 *.backup
-*~
 
 # Archives
 *.zip
